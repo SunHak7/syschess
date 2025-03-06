@@ -1,6 +1,9 @@
 # SysChess
 
-## Implementation
+## Description
+
+My Goal is to create my first project of a game of Chess and I would like develop a lot of different tchnology in it. 
+This name was chosen because Sys means ecosystem to create more than just a game.
 
 ## Etapes
 
