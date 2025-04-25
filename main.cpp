@@ -10,7 +10,8 @@
 using namespace std;
 
 int main() {
-    displayBoard();
+    Board board;
+    displayBoard(board);
 
 
     cout << endl << endl;
