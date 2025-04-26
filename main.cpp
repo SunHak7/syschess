@@ -5,13 +5,15 @@
 
 #include <iostream>
 
-#include "board.h"
+#include "pieces.h"
+
 
 using namespace std;
 
 int main() {
-    Board board;
-    displayBoard(board);
+    Game game = Game();
+    game.start();
+    displayBoard(game);
 
 
     cout << endl << endl;

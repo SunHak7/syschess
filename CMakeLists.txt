@@ -3,4 +3,4 @@ project(SysChess)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(SysChess main.cpp display.cpp pieces.cpp game.cpp pieces.h board.h)
+add_executable(SysChess main.cpp pieces.cpp game.cpp pieces.h)

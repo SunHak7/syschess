@@ -1,6 +1,7 @@
 #ifndef PIECES_H
 #define PIECES_H
-#include "board.h"
+#include <array>
+
 
 // K: King
 // Q: Queen
@@ -9,9 +10,10 @@
 // N: Knight
 // P: Pawn(although, by convention, P is usually omitted from notation)
 
-enum class Pieces { Pawn, Bishop, Knight, Rock, Queen, King };
+const unsigned BOARD_SIZE = 8;
+
+enum class PieceType { Pawn, Bishop, Knight, Rock, Queen, King };
 enum class Color { White, Black };
-enum class Move { Checkmate, Check, Attack };
 
 // chess symbols in the terminal
 // https://www.alt-codes.net/chess-symbols.php
@@ -21,14 +23,21 @@ struct Coord {
     int y;
 };
 
-struct piecesGame {
+struct Piece {
     Coord position;
     Color color;
+    PieceType type;
 };
 
-struct Game {
-    bool checkMate;
-    Move move;
+class Game {
+    public:
+    std::array<std::array<Piece*, BOARD_SIZE>, BOARD_SIZE> pieces;
+    bool start();
+
+    Game();
+    ~Game();
 };
 
+void displayBoard(const Game& board);
+void intialGame(Game board);
 #endif //PIECES_H
