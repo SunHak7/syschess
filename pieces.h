@@ -1,6 +1,8 @@
 #ifndef PIECES_H
 #define PIECES_H
 #include <array>
+#include <map>
+#include <ostream>
 
 
 // K: King
@@ -13,6 +15,9 @@
 const unsigned BOARD_SIZE = 8;
 
 enum class PieceType { Pawn, Bishop, Knight, Rock, Queen, King };
+const std::map<PieceType, char> PIECETYPE_CHARS = {{PieceType::Rock, 'R'}, {PieceType::Knight, 'N'},
+{PieceType::Bishop, 'B'}, {PieceType::Queen, 'Q'}, {PieceType::King, 'K'}, {PieceType::Pawn, 'P'}};
+
 enum class Color { White, Black };
 
 // chess symbols in the terminal
@@ -31,13 +36,14 @@ struct Piece {
 
 class Game {
     public:
-    std::array<std::array<Piece*, BOARD_SIZE>, BOARD_SIZE> pieces;
-    bool start();
+    std::array<std::array<Piece*, BOARD_SIZE>, BOARD_SIZE> pieces{};
+    void start();
+    friend std::ostream& operator<<(std::ostream& os, const Piece& pieces);
 
     Game();
     ~Game();
+    void display();
 };
 
-void displayBoard(const Game& board);
-void intialGame(Game board);
+
 #endif //PIECES_H

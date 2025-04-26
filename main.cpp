@@ -11,10 +11,8 @@
 using namespace std;
 
 int main() {
-    Game game = Game();
+    Game game;
     game.start();
-    displayBoard(game);
-
 
     cout << endl << endl;
     cout << "Welcome to my game !!!";
